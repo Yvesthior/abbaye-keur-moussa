@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-abbey",
+      "description": "Majestic view of the Keur Moussa Abbey architecture",
+      "imageUrl": "https://images.unsplash.com/photo-1623223301588-0b06acbad959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb25hc3RlcnklMjBhYmJleXxlbnwwfHx8fDE3NzIxMDE0OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "monastery abbey"
+    },
+    {
+      "id": "daily-life",
+      "description": "Monks in contemplation during daily prayers",
+      "imageUrl": "https://images.unsplash.com/photo-1506833125604-05ed05f562c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb25rcyUyMHByYXllcnxlbnwwfHx8fDE3NzIxMDE0OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "monks prayer"
+    },
+    {
+      "id": "product-incense",
+      "description": "Artisanal incense produced by the community",
+      "imageUrl": "https://images.unsplash.com/photo-1767281076044-19a6ab67531e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwY3JhZnR8ZW58MHx8fHwxNzcyMTAxNDg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "incense craft"
+    },
+    {
+      "id": "product-craft",
+      "description": "Handcrafted items from the abbey workshop",
+      "imageUrl": "https://images.unsplash.com/photo-1760764541302-e3955fbc6b2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cG90dGVyeSUyMGFydGlzYW58ZW58MHx8fHwxNzcyMDAzNTYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pottery artisan"
+    },
+    {
+      "id": "reflection-bg",
+      "description": "Serene landscape around the sanctuary",
+      "imageUrl": "https://images.unsplash.com/photo-1760238945352-2bf1bb011264?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzZXJlbmUlMjBuYXR1cmV8ZW58MHx8fHwxNzcyMDU5MzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "serene nature"
+    }
+  ]
 }

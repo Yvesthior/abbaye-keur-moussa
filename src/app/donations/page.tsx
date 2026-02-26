@@ -10,10 +10,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Heart, ShieldCheck, Landmark, HelpingHand } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
-const PRESET_AMOUNTS = [10, 25, 50, 100, 250];
+const PRESET_AMOUNTS = [5000, 10000, 25000, 50000, 100000];
 
 export default function DonationsPage() {
-  const [amount, setAmount] = useState<string>("50");
+  const [amount, setAmount] = useState<string>("10000");
   const [customAmount, setCustomAmount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,8 +22,8 @@ export default function DonationsPage() {
     setTimeout(() => {
       setIsLoading(false);
       toast({
-        title: "Thank You for Your Generosity",
-        description: "Your gift helps sustain our community and its works.",
+        title: "Merci pour votre générosité",
+        description: "Votre don aide à soutenir notre communauté et ses œuvres.",
       });
     }, 1500);
   };
@@ -34,9 +34,9 @@ export default function DonationsPage() {
       <div className="bg-primary text-primary-foreground py-20 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <Heart className="mx-auto mb-6 text-secondary" size={48} />
-          <h1 className="font-headline text-5xl md:text-6xl font-bold mb-4 tracking-tight">Support Our Mission</h1>
+          <h1 className="font-headline text-5xl md:text-6xl font-bold mb-4 tracking-tight">Soutenir l'Abbaye</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
-            Your generosity enables us to maintain the sanctuary, support our community of brothers, and continue our charitable works in the surrounding region.
+            Votre générosité nous permet d'entretenir le sanctuaire, de soutenir nos frères et de poursuivre nos actions sociales dans la région de Sébikotane.
           </p>
         </div>
       </div>
@@ -46,27 +46,27 @@ export default function DonationsPage() {
         <div className="space-y-8">
           <Card className="border-none shadow-2xl rounded-2xl bg-white">
             <CardHeader>
-              <CardTitle className="font-headline text-2xl text-primary">Make a Gift</CardTitle>
-              <CardDescription>Select an amount and frequency for your donation.</CardDescription>
+              <CardTitle className="font-headline text-2xl text-primary">Faire un don</CardTitle>
+              <CardDescription>Choisissez le montant et la fréquence de votre soutien.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-8 p-8">
               <div className="space-y-4">
-                <Label className="text-base font-semibold">Donation Frequency</Label>
-                <RadioGroup defaultValue="one-time" className="flex gap-4">
+                <Label className="text-base font-semibold">Fréquence du don</Label>
+                <RadioGroup defaultValue="one-time" className="flex flex-wrap gap-4">
                   <div className="flex items-center space-x-2 bg-accent/50 px-4 py-2 rounded-full border border-primary/10">
                     <RadioGroupItem value="one-time" id="one-time" />
-                    <Label htmlFor="one-time">One-time</Label>
+                    <Label htmlFor="one-time">Une fois</Label>
                   </div>
                   <div className="flex items-center space-x-2 bg-accent/50 px-4 py-2 rounded-full border border-primary/10">
                     <RadioGroupItem value="monthly" id="monthly" />
-                    <Label htmlFor="monthly">Monthly</Label>
+                    <Label htmlFor="monthly">Mensuel</Label>
                   </div>
                 </RadioGroup>
               </div>
 
               <div className="space-y-4">
-                <Label className="text-base font-semibold">Select Amount (€)</Label>
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+                <Label className="text-base font-semibold">Montant (FCFA)</Label>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {PRESET_AMOUNTS.map((amt) => (
                     <Button
                       key={amt}
@@ -75,22 +75,22 @@ export default function DonationsPage() {
                         setAmount(amt.toString());
                         setCustomAmount("");
                       }}
-                      className={`rounded-xl h-12 text-lg ${amount === amt.toString() ? 'bg-primary' : 'border-primary/20'}`}
+                      className={`rounded-xl h-12 ${amount === amt.toString() ? 'bg-primary' : 'border-primary/20'}`}
                     >
-                      {amt}
+                      {amt.toLocaleString()}
                     </Button>
                   ))}
                 </div>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">€</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">FCFA</span>
                   <Input
-                    placeholder="Custom Amount"
+                    placeholder="Montant personnalisé"
                     value={customAmount}
                     onChange={(e) => {
                       setCustomAmount(e.target.value);
                       setAmount("");
                     }}
-                    className="pl-8 rounded-xl h-12 border-primary/20 text-lg"
+                    className="pr-16 rounded-xl h-12 border-primary/20 text-lg"
                   />
                 </div>
               </div>
@@ -101,10 +101,10 @@ export default function DonationsPage() {
                   disabled={isLoading}
                   className="w-full bg-secondary hover:bg-secondary/90 text-white rounded-full h-14 text-xl font-headline"
                 >
-                  {isLoading ? "Processing..." : `Donate €${customAmount || amount}`}
+                  {isLoading ? "Traitement..." : `Donner ${(customAmount || amount).toLocaleString()} FCFA`}
                 </Button>
                 <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-2">
-                  <ShieldCheck size={14} className="text-green-600" /> Secure SSL Encrypted Payment
+                  <ShieldCheck size={14} className="text-green-600" /> Paiement sécurisé SSL
                 </p>
               </div>
             </CardContent>
@@ -114,27 +114,27 @@ export default function DonationsPage() {
         {/* Impact Section */}
         <div className="space-y-12 py-4">
           <div className="space-y-6">
-            <h2 className="font-headline text-3xl font-bold text-primary">Your Impact</h2>
+            <h2 className="font-headline text-3xl font-bold text-primary">Votre Impact</h2>
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Each contribution plays a vital role in our monastery's ecosystem. Here's how your donation helps:
+              Chaque contribution est vitale pour l'équilibre de notre monastère et son rayonnement :
             </p>
           </div>
 
           <div className="grid gap-8">
             <ImpactItem
               icon={<Landmark className="text-secondary" />}
-              title="Heritage Preservation"
-              description="Ensuring the physical maintenance of our historic abbey buildings and our sacred lands."
+              title="Entretien du Patrimoine"
+              description="Préservation des bâtiments historiques et de nos terres sacrées."
             />
             <ImpactItem
               icon={<HelpingHand className="text-secondary" />}
-              title="Community Support"
-              description="Providing essential healthcare and education resources to the surrounding local villages."
+              title="Soutien Social"
+              description="Aide aux villages environnants en matière de santé et d'éducation."
             />
             <ImpactItem
               icon={<Heart className="text-secondary" />}
-              title="Monastic Life"
-              description="Supporting the simple daily living and spiritual formation of our community of brothers."
+              title="Vie Monastique"
+              description="Assurer la vie simple et la formation spirituelle des frères."
             />
           </div>
         </div>

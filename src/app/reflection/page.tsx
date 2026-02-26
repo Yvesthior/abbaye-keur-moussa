@@ -12,7 +12,7 @@ import { Loader2, Quote, Sparkles } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 
-const THEMES = ["Peace", "Gratitude", "Resilience", "Compassion", "Silence", "Faith"];
+const THEMES = ["Paix", "Gratitude", "Résilience", "Compassion", "Silence", "Foi"];
 
 export default function ReflectionPage() {
   const [theme, setTheme] = useState("");
@@ -42,30 +42,30 @@ export default function ReflectionPage() {
       <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
         <Image
           src={reflectionBg?.imageUrl || ""}
-          alt="Reflection background"
+          alt="Méditation"
           fill
           className="object-cover brightness-50"
-          data-ai-hint={reflectionBg?.imageHint}
+          data-ai-hint="serene nature"
         />
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-headline text-5xl md:text-6xl font-bold mb-4 tracking-tight">Inner Stillness</h1>
-          <p className="text-lg opacity-90 max-w-xl mx-auto">Generate a contemplative reflection based on monastic wisdom.</p>
+          <h1 className="font-headline text-5xl md:text-6xl font-bold mb-4 tracking-tight">Méditation Intérieure</h1>
+          <p className="text-lg opacity-90 max-w-xl mx-auto">Générez une parole de sagesse inspirée de la tradition monastique.</p>
         </div>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 -mt-16 relative z-20">
         <Card className="border-none shadow-2xl rounded-2xl bg-white/95 backdrop-blur">
           <CardHeader className="text-center pt-10">
-            <CardTitle className="font-headline text-2xl text-primary">Spiritual Reflection Generator</CardTitle>
-            <CardDescription>Choose a theme or enter a phrase to inspire your prayer.</CardDescription>
+            <CardTitle className="font-headline text-2xl text-primary">Générateur de Méditation</CardTitle>
+            <CardDescription>Choisissez un thème ou entrez une pensée pour inspirer votre prière.</CardDescription>
           </CardHeader>
           <CardContent className="p-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <Label htmlFor="theme">Select a Theme</Label>
+                <Label htmlFor="theme">Thème</Label>
                 <Select onValueChange={setTheme} value={theme}>
                   <SelectTrigger className="rounded-xl border-primary/20">
-                    <SelectValue placeholder="Choose a theme..." />
+                    <SelectValue placeholder="Choisir un thème..." />
                   </SelectTrigger>
                   <SelectContent>
                     {THEMES.map((t) => (
@@ -75,9 +75,9 @@ export default function ReflectionPage() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phrase">Or provide a phrase</Label>
+                <Label htmlFor="phrase">Ou une pensée libre</Label>
                 <Textarea
-                  placeholder="e.g. Listen with the heart..."
+                  placeholder="ex: Écouter avec le cœur..."
                   value={phrase}
                   onChange={(e) => setPhrase(e.target.value)}
                   className="rounded-xl border-primary/20 min-h-[44px]"
@@ -93,12 +93,12 @@ export default function ReflectionPage() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Generating Reflection...
+                  Génération en cours...
                 </>
               ) : (
                 <>
                   <Sparkles className="mr-2 h-5 w-5" />
-                  Generate Reflection
+                  Générer une Méditation
                 </>
               )}
             </Button>
@@ -115,14 +115,6 @@ export default function ReflectionPage() {
           </CardContent>
         </Card>
       </div>
-
-      {/* Philosophy Section */}
-      <section className="max-w-3xl mx-auto px-4 mt-20 text-center">
-        <h3 className="font-headline text-2xl text-primary mb-4">A Tradition of Wisdom</h3>
-        <p className="text-muted-foreground leading-relaxed">
-          The monastic tradition teaches us to pause and listen. These reflections are meant to be a starting point for your own contemplation, bridging the ancient wisdom of the desert fathers with our modern daily lives.
-        </p>
-      </section>
     </div>
   );
 }

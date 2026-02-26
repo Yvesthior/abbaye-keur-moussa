@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const NAV_LINKS = [
-  { href: "/abbey", label: "The Abbey", icon: Landmark },
-  { href: "/shop", label: "Craft Shop", icon: ShoppingBag },
-  { href: "/news", label: "News & Events", icon: Newspaper },
-  { href: "/reflection", label: "Reflections", icon: MessageSquare },
-  { href: "/donations", label: "Support Us", icon: Heart },
-  { href: "/contact", label: "Visit & Contact", icon: MapPin },
+  { href: "/abbey", label: "L'Abbaye", icon: Landmark },
+  { href: "/shop", label: "Boutique", icon: ShoppingBag },
+  { href: "/news", label: "Actualités", icon: Newspaper },
+  { href: "/reflection", label: "Méditations", icon: MessageSquare },
+  { href: "/donations", label: "Soutien", icon: Heart },
+  { href: "/contact", label: "Accès & Contact", icon: MapPin },
 ];
 
 export function Navbar() {
@@ -46,7 +46,7 @@ export function Navbar() {
               </Link>
             ))}
             <Button asChild variant="default" className="bg-primary hover:bg-primary/90 rounded-full px-6">
-              <Link href="/donations">Donate</Link>
+              <Link href="/donations">Faire un don</Link>
             </Button>
           </div>
 
@@ -58,7 +58,7 @@ export function Navbar() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background border-l-primary/10">
                 <div className="flex flex-col space-y-6 mt-10">
                   {NAV_LINKS.map((link) => (
                     <Link
@@ -73,7 +73,7 @@ export function Navbar() {
                   ))}
                   <Button asChild className="w-full bg-primary hover:bg-primary/90 mt-4 rounded-full">
                     <Link href="/donations" onClick={() => setIsOpen(false)}>
-                      Make a Donation
+                      Soutenir l'Abbaye
                     </Link>
                   </Button>
                 </div>

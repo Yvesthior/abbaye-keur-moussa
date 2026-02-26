@@ -6,8 +6,8 @@ import { Footer } from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Keur Moussa Sanctuary',
-  description: 'Heritage, Solemnity, and Contemplation at the Abbey of Keur Moussa',
+  title: 'Sanctuaire de Keur Moussa',
+  description: 'Patrimoine, Solennité et Contemplation à l\'Abbaye de Keur Moussa, Sénégal.',
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

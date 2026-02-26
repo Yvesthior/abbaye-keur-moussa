@@ -1,10 +1,11 @@
+
 'use server';
 /**
- * @fileOverview A GenAI agent for generating spiritual reflections or prayers.
+ * @fileOverview Agent IA pour générer des méditations spirituelles en français.
  *
- * - generateSpiritualReflection - A function that handles the generation of spiritual reflections.
- * - GenerateSpiritualReflectionInput - The input type for the generateSpiritualReflection function.
- * - GenerateSpiritualReflectionOutput - The return type for the generateSpiritualReflection function.
+ * - generateSpiritualReflection - Fonction gérant la génération de réflexions.
+ * - GenerateSpiritualReflectionInput - Type d'entrée.
+ * - GenerateSpiritualReflectionOutput - Type de sortie.
  */
 
 import {ai} from '@/ai/genkit';
@@ -16,17 +17,17 @@ const GenerateSpiritualReflectionInputSchema = z
       .string()
       .optional()
       .describe(
-        'An optional theme for the reflection (e.g., peace, gratitude, resilience).'
+        'Thème optionnel pour la méditation (ex: paix, gratitude, résilience).'
       ),
     phrase: z
       .string()
       .optional()
       .describe(
-        'An optional phrase from monastic teachings to inspire the reflection.'
+        'Une phrase optionnelle inspirée de la règle de Saint Benoît.'
       ),
   })
   .refine(input => input.theme || input.phrase, {
-    message: 'Either a theme or a phrase must be provided.',
+    message: 'Un thème ou une phrase doit être fourni.',
     path: ['theme', 'phrase'],
   });
 export type GenerateSpiritualReflectionInput = z.infer<
@@ -36,7 +37,7 @@ export type GenerateSpiritualReflectionInput = z.infer<
 const GenerateSpiritualReflectionOutputSchema = z.object({
   reflection: z
     .string()
-    .describe('The generated short, contemplative reflection or prayer.'),
+    .describe('La méditation spirituelle courte générée en français.'),
 });
 export type GenerateSpiritualReflectionOutput = z.infer<
   typeof GenerateSpiritualReflectionOutputSchema
@@ -52,19 +53,20 @@ const prompt = ai.definePrompt({
   name: 'spiritualReflectionPrompt',
   input: {schema: GenerateSpiritualReflectionInputSchema},
   output: {schema: GenerateSpiritualReflectionOutputSchema},
-  prompt: `You are a monastic elder, providing short, contemplative spiritual reflections or prayers.
+  prompt: `Vous êtes un moine de l'Abbaye de Keur Moussa au Sénégal, sage et contemplatif. 
+Vous fournissez des méditations spirituelles ou des prières courtes en français.
 
-Generate a spiritual reflection or prayer based on the following input:
+Générez une méditation basée sur ces éléments :
 
 {{#if theme}}
-Theme: {{{theme}}}
+Thème : {{{theme}}}
 {{/if}}
 
 {{#if phrase}}
-Phrase from monastic teachings: "{{{phrase}}}"
+Inspiration : "{{{phrase}}}"
 {{/if}}
 
-Ensure the reflection is concise, inspiring, and offers solace. Focus on contemplation and inner peace.
+La méditation doit être concise, inspirante et offrir du réconfort. Elle doit refléter l'esprit de paix de la vie monastique africaine. Répondez uniquement en français.
 `,
 });
 

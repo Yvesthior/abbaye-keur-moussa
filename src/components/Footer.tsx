@@ -12,7 +12,7 @@ export function Footer() {
             <span className="font-headline text-2xl font-bold tracking-tight">KEUR MOUSSA</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-            A Benedictine monastery in the heart of Senegal, dedicated to prayer, work, and community in the spirit of Saint Benedict.
+            Abbaye bénédictine au Sénégal, dédiée à la prière, au travail et à la communauté dans l'esprit de Saint Benoît.
           </p>
           <div className="flex space-x-4 pt-4">
             <Link href="#" className="hover:text-secondary transition-colors"><Facebook size={20} /></Link>
@@ -21,30 +21,30 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-headline text-lg font-bold mb-6 text-secondary">Quick Links</h4>
+          <h4 className="font-headline text-lg font-bold mb-6 text-secondary">Navigation</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/80">
-            <li><Link href="/abbey" className="hover:text-white transition-colors">History & Mission</Link></li>
-            <li><Link href="/shop" className="hover:text-white transition-colors">Artisanal Products</Link></li>
-            <li><Link href="/news" className="hover:text-white transition-colors">News & Events</Link></li>
-            <li><Link href="/donations" className="hover:text-white transition-colors">Support the Abbey</Link></li>
+            <li><Link href="/abbey" className="hover:text-white transition-colors">L'Abbaye</Link></li>
+            <li><Link href="/shop" className="hover:text-white transition-colors">Boutique</Link></li>
+            <li><Link href="/news" className="hover:text-white transition-colors">Actualités</Link></li>
+            <li><Link href="/donations" className="hover:text-white transition-colors">Soutenir</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-headline text-lg font-bold mb-6 text-secondary">Spiritual Life</h4>
+          <h4 className="font-headline text-lg font-bold mb-6 text-secondary">Vie Spirituelle</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/80">
-            <li><Link href="/reflection" className="hover:text-white transition-colors">Daily Reflections</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors">Pilgrimages</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors">Prayer Requests</Link></li>
+            <li><Link href="/reflection" className="hover:text-white transition-colors">Méditations</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Pèlerinages</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Intentions de prière</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-headline text-lg font-bold mb-6 text-secondary">Contact Information</h4>
+          <h4 className="font-headline text-lg font-bold mb-6 text-secondary">Contact</h4>
           <ul className="space-y-4 text-sm text-primary-foreground/80">
             <li className="flex items-start space-x-3">
               <MapPin size={18} className="shrink-0 mt-0.5" />
-              <span>Abbaye de Keur Moussa, BP 3169, Dakar, Senegal</span>
+              <span>Abbaye de Keur Moussa, BP 3169, Dakar, Sénégal</span>
             </li>
             <li className="flex items-center space-x-3">
               <Phone size={18} className="shrink-0" />
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-white/10 text-center text-xs text-primary-foreground/50">
-        © {new Date().getFullYear()} Abbaye de Keur Moussa. All rights reserved.
+        © {new Date().getFullYear()} Abbaye de Keur Moussa. Tous droits réservés.
       </div>
     </footer>
   );

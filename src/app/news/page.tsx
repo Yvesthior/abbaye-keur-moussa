@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -9,29 +9,29 @@ import { Calendar, ArrowRight } from "lucide-react";
 const NEWS = [
   {
     id: 1,
-    title: "New Kora Liturgy Recording Released",
-    date: "May 15, 2024",
-    category: "Announcements",
+    title: "Nouvel album de Liturgie à la Kora",
+    date: "15 Mai 2024",
+    category: "Annonces",
     image: "https://picsum.photos/seed/news1/800/600",
-    excerpt: "We are joyful to announce the release of our latest liturgical album featuring the full Vespers service.",
+    excerpt: "Nous sommes joyeux d'annoncer la sortie de notre dernier album liturgique présentant l'intégralité du service des Vêpres.",
     hint: "choir singing"
   },
   {
     id: 2,
-    title: "Upcoming Retreat: Finding Silence",
-    date: "June 10-14, 2024",
-    category: "Events",
+    title: "Prochaine Retraite : Trouver le Silence",
+    date: "10-14 Juin 2024",
+    category: "Événements",
     image: "https://picsum.photos/seed/news2/800/600",
-    excerpt: "Join us for a guided four-day retreat focused on the practice of silence and contemplative prayer.",
+    excerpt: "Rejoignez-nous pour une retraite guidée de quatre jours axée sur la pratique du silence et de la prière contemplative.",
     hint: "silent retreat"
   },
   {
     id: 3,
-    title: "Harvest Festival 2024",
-    date: "July 22, 2024",
-    category: "Community",
+    title: "Fête des Récoltes 2024",
+    date: "22 Juillet 2024",
+    category: "Communauté",
     image: "https://picsum.photos/seed/news3/800/600",
-    excerpt: "Celebrate the bounty of our lands with us! Open day at the abbey farm with local product tasting.",
+    excerpt: "Célébrez l'abondance de nos terres avec nous ! Journée porte ouverte à la ferme de l'abbaye avec dégustation de produits locaux.",
     hint: "harvest festival"
   }
 ];
@@ -41,8 +41,8 @@ export default function NewsPage() {
     <div className="pb-24">
       <div className="bg-primary text-primary-foreground py-20 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="font-headline text-5xl md:text-6xl font-bold mb-4 tracking-tight">News & Events</h1>
-          <p className="text-primary-foreground/70 text-lg">Stay connected with the heartbeat of Keur Moussa.</p>
+          <h1 className="font-headline text-5xl md:text-6xl font-bold mb-4 tracking-tight">Actualités & Événements</h1>
+          <p className="text-primary-foreground/70 text-lg">Restez connectés au battement de cœur de Keur Moussa.</p>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export default function NewsPage() {
               <CardFooter className="pb-8">
                 <Button variant="link" asChild className="text-secondary p-0 h-auto group-hover:translate-x-1 transition-transform">
                   <Link href={`/news/${item.id}`} className="flex items-center gap-2">
-                    Read Article <ArrowRight size={16} />
+                    Lire l'article <ArrowRight size={16} />
                   </Link>
                 </Button>
               </CardFooter>
@@ -83,22 +83,22 @@ export default function NewsPage() {
           ))}
         </div>
 
-        {/* Newsletter Signup */}
+        {/* Newsletter */}
         <div className="mt-24 p-12 bg-primary rounded-3xl text-primary-foreground text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-            <h2 className="font-headline text-3xl font-bold">Subscribe to our Newsletter</h2>
+            <h2 className="font-headline text-3xl font-bold">S'abonner à la Newsletter</h2>
             <p className="text-primary-foreground/70 leading-relaxed">
-              Receive spiritual reflections and updates from the Abbey directly in your inbox. We promise to respect your silence.
+              Recevez des réflexions spirituelles et des nouvelles de l'Abbaye directement dans votre boîte mail. Nous promettons de respecter votre silence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input 
                 type="email" 
-                placeholder="Your email address" 
+                placeholder="Votre adresse email" 
                 className="flex-grow h-12 rounded-full px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-secondary"
               />
               <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full h-12 px-8 font-bold">
-                Join Us
+                Nous Rejoindre
               </Button>
             </div>
           </div>

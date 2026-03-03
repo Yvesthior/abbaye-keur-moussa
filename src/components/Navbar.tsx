@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Landmark, ShoppingBag, Heart, MessageSquare, MapPin, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 const NAV_LINKS = [
   { href: "/abbey", label: "L'Abbaye", icon: Landmark },
@@ -59,6 +59,9 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background border-l-primary/10">
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Menu de navigation</SheetTitle>
+                </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-10">
                   {NAV_LINKS.map((link) => (
                     <Link

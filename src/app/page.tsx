@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { 
   ArrowRight, 
@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Section Héro */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
           src={heroImg?.imageUrl || ""}
           alt="Abbaye de Keur Moussa"
@@ -34,19 +34,19 @@ export default function Home() {
           priority
           data-ai-hint="monastery abbey"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white px-4 max-w-5xl">
-          <Badge className="mb-6 bg-secondary hover:bg-secondary/90 text-white px-6 py-1 text-sm uppercase tracking-widest border-none">
+          <Badge className="mb-6 bg-primary text-white px-6 py-1 text-sm uppercase tracking-widest border-none">
             Abbaye Bénédictine au Sénégal
           </Badge>
-          <h1 className="font-headline text-5xl md:text-8xl font-bold mb-6 tracking-tight drop-shadow-2xl">
+          <h1 className="font-headline text-5xl md:text-8xl font-bold mb-6 tracking-tight">
             La Paix de Keur Moussa
           </h1>
           <p className="text-xl md:text-2xl font-body mb-10 opacity-90 leading-relaxed max-w-3xl mx-auto italic">
             "Chercher Dieu dans le silence, le travail et la louange à la Kora."
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-10 h-14 text-lg font-bold shadow-xl">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 h-14 text-lg font-bold">
               <Link href="/contact">Venir nous voir</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white rounded-full px-10 h-14 text-lg">
@@ -56,78 +56,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bloc Horaires et Infos - Inspiration Paroisse */}
-      <section className="relative z-20 -mt-20 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-0 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="bg-primary text-primary-foreground p-8 md:p-12 space-y-6">
-            <div className="flex items-center gap-4 mb-4">
-              <Clock className="text-secondary h-8 w-8" />
-              <h2 className="font-headline text-3xl font-bold">Horaires des Offices</h2>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                <span className="font-medium">Messe de semaine</span>
-                <span className="font-bold">08:00</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-2 text-secondary">
-                <span className="font-bold">Messe du Dimanche</span>
-                <span className="font-bold underline">10:00</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                <span className="font-medium">Vêpres (Kora)</span>
-                <span className="font-bold">18:30</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                <span className="font-medium">Vigiles</span>
-                <span className="font-bold">04:30</span>
-              </div>
-            </div>
-            <p className="text-xs opacity-60 italic mt-4">Tous les offices sont chantés et ouverts à tous dans le respect du silence.</p>
+      {/* Section Horaires et Célébrations - Modèle Demandé */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="bg-muted py-4 mb-12 text-center rounded-sm">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold uppercase tracking-widest text-foreground">
+              HORAIRES ET CÉLÉBRATIONS
+            </h2>
           </div>
 
-          <div className="bg-white p-8 md:p-12 space-y-6">
-            <div className="flex items-center gap-4 mb-4 text-primary">
-              <ShoppingBag className="text-secondary h-8 w-8" />
-              <h2 className="font-headline text-3xl font-bold">La Boutique</h2>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Ouverte tous les jours de <span className="font-bold text-primary">08:30 à 17:30</span>.
-              Retrouvez nos produits : miel, huiles, kora, et artisanat monastique.
-            </p>
-            <div className="pt-4">
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-full w-full">
-                <Link href="/shop" className="flex items-center justify-center gap-2">
-                  Voir le catalogue <ChevronRight size={16} />
-                </Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="bg-accent text-accent-foreground p-8 md:p-12 space-y-6">
-            <div className="flex items-center gap-4 mb-4">
-              <MapPin className="text-secondary h-8 w-8" />
-              <h2 className="font-headline text-3xl font-bold">Accès & Contact</h2>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Colonne Semaine */}
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 mt-1 shrink-0 opacity-70" />
-                <p>Sébikotane, à 50km de Dakar sur la route de Thiès.</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 shrink-0 opacity-70" />
-                <p>+221 33 836 33 33</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Info className="h-5 w-5 shrink-0 opacity-70" />
-                <p>Retraites sur réservation préalable.</p>
+              <h3 className="text-primary font-bold text-sm uppercase mb-4 h-12 flex items-center">
+                LUNDI, MARDI, MERCREDI, JEUDI ET VENDREDI
+              </h3>
+              <div className="border rounded-sm overflow-hidden">
+                <ScheduleRow label="Vigiles" time="05h20" isHeader />
+                <ScheduleRow label="Laudes, Messe et Tierce" time="07h30" />
+                <ScheduleRow label="Sexte" time="12h15" />
+                <ScheduleRow label="None" time="14h45" />
+                <ScheduleRow label="Vêpres" time="18h30 (sauf mar & ven 17h30, jeu 19h)" />
+                <ScheduleRow label="Complies" time="20h30" />
               </div>
             </div>
-            <div className="pt-4 text-center">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-full w-full">
-                <Link href="/contact">Plan d'accès complet</Link>
-              </Button>
+
+            {/* Colonne Samedi */}
+            <div className="space-y-4">
+              <h3 className="text-primary font-bold text-sm uppercase mb-4 h-12 flex items-center">
+                SAMEDI
+              </h3>
+              <div className="border rounded-sm overflow-hidden">
+                <ScheduleRow label="Vigiles" time="05h20" isHeader />
+                <ScheduleRow label="Laudes" time="07h30" />
+                <ScheduleRow label="Tierce, Messe et Sexte" time="11h15" />
+                <ScheduleRow label="None" time="14h45" />
+                <ScheduleRow label="Vêpres" time="17h30" />
+                <ScheduleRow label="Complies" time="20h30" />
+              </div>
+            </div>
+
+            {/* Colonne Dimanche */}
+            <div className="space-y-4">
+              <h3 className="text-primary font-bold text-sm uppercase mb-4 h-12 flex items-center">
+                DIMANCHE ET SOLENNITÉ
+              </h3>
+              <div className="border rounded-sm overflow-hidden">
+                <ScheduleRow label="Vigiles" time="05h20" isHeader />
+                <ScheduleRow label="Laudes" time="08h" />
+                <ScheduleRow label="Messe et Tierce" time="10h (Solennité en sem. 10h45)" />
+                <ScheduleRow label="Sexte" time="12h15" />
+                <ScheduleRow label="None" time="13h40" />
+                <ScheduleRow label="Vêpres" time="17h30" />
+                <ScheduleRow label="Repas" time="19h" />
+                <ScheduleRow label="Complies" time="20h30" />
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Infos Pratiques & Boutique */}
+      <section className="py-16 bg-accent/20">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+           <Card className="border-none shadow-md">
+              <CardContent className="p-8 flex items-start gap-6">
+                 <div className="p-3 bg-primary/10 rounded-full text-primary">
+                    <ShoppingBag size={24} />
+                 </div>
+                 <div className="space-y-3">
+                    <h3 className="font-headline text-2xl font-bold">La Boutique Monastique</h3>
+                    <p className="text-muted-foreground text-sm">
+                       Ouverte tous les jours de <strong>08:30 à 17:30</strong>. 
+                       Retrouvez notre miel, nos huiles et l'artisanat des frères.
+                    </p>
+                    <Button asChild variant="link" className="p-0 h-auto text-primary font-bold">
+                       <Link href="/shop" className="flex items-center gap-2">Visiter la boutique <ChevronRight size={16} /></Link>
+                    </Button>
+                 </div>
+              </CardContent>
+           </Card>
+
+           <Card className="border-none shadow-md">
+              <CardContent className="p-8 flex items-start gap-6">
+                 <div className="p-3 bg-primary/10 rounded-full text-primary">
+                    <MapPin size={24} />
+                 </div>
+                 <div className="space-y-3">
+                    <h3 className="font-headline text-2xl font-bold">Accès & Contact</h3>
+                    <p className="text-muted-foreground text-sm">
+                       Sébikotane, à 50km de Dakar. Pour toute retraite spirituelle, 
+                       veuillez nous contacter à l'avance au <strong>+221 33 836 33 33</strong>.
+                    </p>
+                    <Button asChild variant="link" className="p-0 h-auto text-primary font-bold">
+                       <Link href="/contact" className="flex items-center gap-2">Plus d'informations <ChevronRight size={16} /></Link>
+                    </Button>
+                 </div>
+              </CardContent>
+           </Card>
         </div>
       </section>
 
@@ -137,9 +163,9 @@ export default function Home() {
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="font-headline text-4xl font-bold text-primary mb-2">Vie de la Communauté</h2>
-              <div className="w-20 h-1 bg-secondary"></div>
+              <div className="w-20 h-1 bg-primary"></div>
             </div>
-            <Button asChild variant="link" className="text-secondary font-bold">
+            <Button asChild variant="link" className="text-primary font-bold">
               <Link href="/news" className="flex items-center gap-2">Toutes les actus <ArrowRight size={16} /></Link>
             </Button>
           </div>
@@ -166,70 +192,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Spéciaux */}
-      <section className="py-24 bg-accent/30">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <h2 className="font-headline text-4xl font-bold text-primary">Un Lieu de Ressourcement</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              L'Abbaye accueille ceux qui souhaitent s'extraire de l'agitation du monde pour un temps de silence et de prière. Notre hôtellerie est ouverte aux retraitants.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                  <BookOpen size={20} />
-                </div>
-                <span className="font-bold">Retraites individuelles</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                  <Music size={20} />
-                </div>
-                <span className="font-bold">Liturgie à la Kora</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                  <Heart size={20} />
-                </div>
-                <span className="font-bold">Accompagnement</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                  <Calendar size={20} />
-                </div>
-                <span className="font-bold">Sessions spirituelles</span>
-              </div>
-            </div>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 rounded-full px-8">
-              <Link href="/reflection">Découvrir la Méditation IA</Link>
-            </Button>
-          </div>
-          <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-            <Image 
-              src="https://picsum.photos/seed/silence/800/1000" 
-              alt="Silence et prière" 
-              fill 
-              className="object-cover"
-              data-ai-hint="meditation silence"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Faire un don */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-50" />
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-8">
-          <Heart className="mx-auto text-secondary h-16 w-16 mb-4 animate-pulse" />
-          <h2 className="font-headline text-4xl md:text-5xl font-bold">Soutenir notre mission</h2>
+      {/* Soutenir */}
+      <section className="py-24 bg-primary text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
+          <Heart className="mx-auto text-white h-12 w-12" />
+          <h2 className="font-headline text-4xl font-bold">Soutenir l'Abbaye</h2>
           <p className="text-xl opacity-80 leading-relaxed">
-            L'Abbaye vit de son travail et de votre générosité. Vos dons nous aident à entretenir ce lieu sacré et à soutenir nos actions sociales dans la région.
+            Vos dons nous aident à entretenir ce lieu sacré et à poursuivre nos missions sociales au Sénégal.
           </p>
-          <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-12 h-16 text-xl font-bold shadow-2xl">
+          <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-12 h-16 text-xl font-bold">
             <Link href="/donations">Faire un Don (FCFA)</Link>
           </Button>
         </div>
       </section>
+    </div>
+  );
+}
+
+function ScheduleRow({ label, time, isHeader = false }: { label: string, time: string, isHeader?: boolean }) {
+  return (
+    <div className={`flex justify-between items-center px-4 py-3 border-b last:border-0 ${isHeader ? 'bg-accent/50' : 'bg-white'}`}>
+      <span className={`text-sm ${isHeader ? 'font-bold' : 'font-medium'}`}>{label}</span>
+      <span className="text-sm font-bold text-right ml-4">{time}</span>
     </div>
   );
 }
@@ -245,19 +229,15 @@ function NewsCard({ title, date, image, href }: { title: string, date: string, i
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>
-      <CardHeader className="pt-6">
-        <p className="text-xs text-secondary font-bold uppercase tracking-wider mb-2">{date}</p>
-        <CardTitle className="font-headline text-2xl text-primary leading-tight">
-          {title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <Button variant="link" asChild className="text-primary p-0 h-auto font-bold group-hover:translate-x-1 transition-transform">
+      <div className="p-6 flex flex-col flex-grow">
+        <p className="text-xs text-primary font-bold uppercase tracking-wider mb-2">{date}</p>
+        <h4 className="font-headline text-2xl text-foreground leading-tight mb-4">{title}</h4>
+        <Button variant="link" asChild className="text-primary p-0 h-auto font-bold mt-auto group-hover:translate-x-1 transition-transform">
           <Link href={href} className="flex items-center gap-2">
             Lire la suite <ArrowRight size={16} />
           </Link>
         </Button>
-      </CardContent>
+      </div>
     </Card>
   );
 }

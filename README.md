@@ -1,5 +1,3 @@
-# Firebase Studio
+# Abbaye keur Moussa
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+THis is the boilerplate for abbaye keur moussa website

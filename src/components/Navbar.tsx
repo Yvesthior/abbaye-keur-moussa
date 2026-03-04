@@ -1,7 +1,7 @@
-
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, Landmark, ShoppingBag, Heart, MessageSquare, MapPin, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,9 +24,15 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground">
-                <Landmark size={20} />
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <Image 
+                  src="https://www.abbaye-keur-moussa.com/wp-content/uploads/2024/12/bvcn_-transformed.png"
+                  alt="Logo Keur Moussa"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
               </div>
               <span className="font-headline text-xl md:text-2xl font-bold text-primary tracking-tight">
                 KEUR MOUSSA
@@ -45,7 +51,7 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="default" className="bg-primary hover:bg-primary/90 rounded-full px-6">
+            <Button asChild variant="default" className="bg-primary hover:bg-primary/90 rounded-full px-6 text-white font-bold">
               <Link href="/donations">Faire un don</Link>
             </Button>
           </div>
@@ -74,7 +80,7 @@ export function Navbar() {
                       <span>{link.label}</span>
                     </Link>
                   ))}
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90 mt-4 rounded-full">
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90 mt-4 rounded-full text-white font-bold">
                     <Link href="/donations" onClick={() => setIsOpen(false)}>
                       Soutenir l'Abbaye
                     </Link>

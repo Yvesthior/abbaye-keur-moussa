@@ -1,5 +1,5 @@
-
 import Link from "next/link";
+import Image from "next/image";
 import { Landmark, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 
 export function Footer() {
@@ -7,8 +7,16 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Landmark size={24} className="text-secondary" />
+          <div className="flex items-center space-x-3">
+            <div className="relative w-10 h-10 bg-white rounded-full p-1">
+              <Image 
+                src="https://www.abbaye-keur-moussa.com/wp-content/uploads/2024/12/bvcn_-transformed.png"
+                alt="Logo Keur Moussa"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+            </div>
             <span className="font-headline text-2xl font-bold tracking-tight">KEUR MOUSSA</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">

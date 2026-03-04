@@ -1,4 +1,3 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
@@ -8,6 +7,9 @@ import { Toaster } from '@/components/ui/toaster';
 export const metadata: Metadata = {
   title: 'Sanctuaire de Keur Moussa',
   description: 'Patrimoine, Solennité et Contemplation à l\'Abbaye de Keur Moussa, Sénégal.',
+  icons: {
+    icon: 'https://www.abbaye-keur-moussa.com/wp-content/uploads/2024/12/bvcn_-transformed.png',
+  },
 };
 
 export default function RootLayout({
